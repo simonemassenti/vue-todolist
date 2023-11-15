@@ -17,7 +17,7 @@
 
             <div class="row mb-4">
                 <div class="col-10">
-                    <input class="form-control px-1" type="text" id="newTask" v-model="newTask"
+                    <input class="form-control px-1" type="text" id="newTask" v-model="task.text"
                         placeholder="Inserisci un nuovo task" @keyup.enter="getNewTask">
                 </div>
                 <div class="col-2 text-center">
@@ -29,7 +29,7 @@
 
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between fs-5" v-for="(task, index) in taskList"> 
-                    {{ task }} 
+                    <span role="button" @click="doneUndone(index)" :class="!taskList[index].done? '' : 'text-decoration-line-through'">{{ taskList[index].text }} </span>
                     <div>
                         <button  class="btn btn-danger" @click="deleteTask(index)">X</button>
                     </div>
