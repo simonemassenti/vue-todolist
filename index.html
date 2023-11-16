@@ -29,7 +29,7 @@
 
             <hr class="mb-4">
 
-            <ul class="list-group">
+            <ul class="list-group" v-if="taskList.length > 0">
                 <li class="list-group-item d-flex justify-content-between fs-5" v-for="(task, index) in taskList"> 
                     <span role="button" @click="doneUndone(index)" :class="!taskList[index].done? '' : 'text-decoration-line-through'">{{ taskList[index].text }} </span>
                     <div>
@@ -37,6 +37,11 @@
                     </div>
                 </li>
             </ul>
+
+            <div class="alert alert-success h4 text-center" v-else>
+                Non hai nessuna task!
+            </div>
+
         </div>
 
 
